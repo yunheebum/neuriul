@@ -16,7 +16,6 @@ print()
 print()
 print()
 
-# word='answer' # 테스트 정답
 #파일에서 퀴즈 문제 가져오기
 words=[]
 with open('quiz.csv','r') as q:
@@ -25,8 +24,6 @@ with open('quiz.csv','r') as q:
     for c in reader:
         words.append(c)
         
-    # print(word)
-
 # f=open('quiz.csv','w')
 # f.close
 # 파일 생성을 위해 임시 작성
@@ -36,8 +33,6 @@ with open('quiz.csv','r') as q:
 #     q.write('test\n')
 #     q.write('interest')
 
-
-# 낱말 맞추기 게임 변수 정리
 
 #문제 섞기
 random.shuffle(words)
@@ -52,7 +47,6 @@ blank=' '
 for i in word:
     print('_', end=" ")
 
-
 while turns > 0:
     answer=input(blank*2*len(word) +'낱말을 입력하세요')
     for i in word:
@@ -64,6 +58,7 @@ while turns > 0:
             print('_',end=" ")
     
     print(blank+'기회가 한번 줄었습니다.')
+    turns -= 1
     if turns==1:
         print(blank+ '기회가 1  남앗습니다.\\')
-    turns -= 1
+    
