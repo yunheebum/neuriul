@@ -18,37 +18,42 @@ print()
 
 #파일에서 퀴즈 문제 가져오기
 words=[]
-with open('quiz.csv','r') as q:
-    reader=csv.reader(q)
-
+with open('quiz.csv','r',encoding='utf-8') as q:
+    reader=csv.reader(q) 
+    
     for c in reader:
         words.append(c)
         
 # f=open('quiz.csv','w')
 # f.close
-# 파일 생성을 위해 임시 작성
+# #파일 생성을 위해 임시 작성
 
-# with open('quiz.csv','w') as q:
-#     q.write('danger\n')
-#     q.write('test\n')
-#     q.write('interest')
+# with open('quiz.csv','w',encoding='utf-8') as q:
+#     q.write('danger,위험\n')
+#     q.write('test,시험\n')
+#     q.write('interest,흥미')
 
 
 #문제 섞기
+# print(words)
 random.shuffle(words)
 quiz=random.choice(words)
 
 word=quiz[0]
+hint=quiz[1]
 # print(word)
+# print(hint)
 
 turns=3 # 주어진 게임 기회(10회 정도)
 blank=' '
 
 for i in word:
     print('_', end=" ")
-
+    
 while turns > 0:
+    print('힌트는:',hint, end=" ")
     answer=input(blank*2*len(word) +'낱말을 입력하세요')
+    print('힌트는:',hint,end='')
     for i in word:
         for j in answer:
             if i==j:
