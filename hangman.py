@@ -1,6 +1,8 @@
 import time
 import random
 import csv
+import os
+# import pillow
 
 #  초기 화면 구성
 print('o'*50)
@@ -66,4 +68,13 @@ while turns > 0:
     turns -= 1
     if turns==1:
         print(blank+ '기회가 1  남앗습니다.\\')
+    if answer==word:
+        os.system('cls')
+        print('<'*50)
+        print('축하드립니다.')
+        print('<'*50)
+        
     
+        from PIL import Image
+        img=Image.open('success.png')
+        img.show()
